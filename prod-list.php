@@ -9,8 +9,8 @@
 ?>
 
 <section>
-    <table border= 4>
-          <thead>PRODUCT-LIST</thead>
+    <table class="table table-striped">
+          <thead><h3>PRODUCT-LIST</h3></thead>
             <tr>
                <td>Name</td>
                <td>Quantity</td>

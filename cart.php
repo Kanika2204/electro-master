@@ -1,14 +1,15 @@
 <?php
-session_start();
 include 'header.php';
 include 'dbcon.php';
+if(isset($_SESSION['id'])){
     $user_id = $_SESSION['id'];
     $sql= "SELECT * FROM cart where user_id=$user_id";
     $result = $conn->query($sql);
+
     
 ?>
 <div class="container">
-<table class="table table-striped ">
+   <table class="table table-striped ">
 <tr>
     <th colspan="6">Products in your Cart</th>
 </tr>
@@ -59,11 +60,16 @@ foreach($result as $key=>$value){
     </td>
     
 </tr>
+<a href="checkout.php">Checkout Page</a >
 
 
 </table>
 </div>
-
+<?php } ?>
+<div class="container">
+    <h2>CART</h2>
+    <a href="index.php" class="btn btn-primary" >Go To Shop</a>
+</div>
 <script type="text/javascript">    
     // Send product details in the server
     function qtupdate(id){

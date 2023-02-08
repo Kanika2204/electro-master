@@ -1,8 +1,6 @@
 <?php
+session_start();
    include 'dbcon.php';
-   $user_id = $_SESSION['id'];
-   $sql= "SELECT * FROM cart where user_id=$user_id";
-   $result = $conn->query($sql);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,6 +48,8 @@
 				<div class="container">
 					
 					<ul class="header-links pull-right">
+					   <li><a href="usersignupform.php"><i class="fa fa-user-o"></i>Register</a></li>
+
 						<?php
 						if(isset($_SESSION['id'])){ ?>
 							<li><a href="logout.php"><i class="fa fa-user-o"></i>Logout</a></li>
@@ -73,7 +73,7 @@
 						<!-- LOGO -->
 						<div class="col-md-3">
 							<div class="header-logo">
-								<a href="#" class="logo">
+								<a href="index.php" class="logo">
 									<img src="./img/logo.png" alt="">
 								</a>
 							</div>
@@ -115,10 +115,16 @@
 									<a class="nav-link" href="cart.php"><i class="fa fa-shopping-cart"></i> <span id="cart-item" class="badge badge-danger">Your Cart</span>
 										<div class="qty">
 											<?php 
+											if(isset($_SESSION['id'])){
+												$user_id=$_SESSION['id'];
 												$sql= "SELECT COUNT(user_id) FROM cart where user_id=$user_id";
 												$result = $conn->query($sql);
 												$row = $result->fetch_assoc();
 												echo implode($row);
+											}
+											else{
+												echo 0;
+											}
                                             ?>
         								</div>
 									</a>

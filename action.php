@@ -19,7 +19,7 @@
                 $update= "UPDATE cart SET total_price='$totalprice', quantity='$quantity' where user_id=$user_id and prod_id=$prod_id";
                 $result = $conn->query($update);
                 if($result){
-                  return true;
+                 return true;
                 }
                 else{
                   return false;

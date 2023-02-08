@@ -5,7 +5,6 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $email = ($_POST["email"]);
         $password = ($_POST["password"]);
-        var_dump($email, $password);
         $sql = "SELECT * FROM usersignup WHERE email = '$email' and password = '$password'";
         $result = mysqli_query($conn,$sql); 
         $row =mysqli_fetch_array($result, MYSQLI_ASSOC);
@@ -22,7 +21,7 @@
                 header("location: userloginform.php");            
                 
             }
-        
+              
     }
 ?>
 
