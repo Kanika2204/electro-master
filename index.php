@@ -1,11 +1,9 @@
 <?php
-   session_start();
    include ('header.php');
    include ('dbcon.php');
    $sql= "SELECT * FROM products";
    $result = $conn->query($sql);
    $row = $result->fetch_assoc();
- 
 ?>
 
    <div class="container-fluid">
@@ -44,7 +42,8 @@
             id: id
             },
            success:function(result) {
-             alert(result);
+             alert("Product is added to Cart.");
+             window.location.reload();
            }
 
       });

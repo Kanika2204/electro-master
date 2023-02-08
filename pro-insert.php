@@ -53,17 +53,18 @@ if(isset($_POST['submit'])){
 
 
    if (empty($_POST["description"])) {
-    echo "please enter some description."; die;
-       }else {
-    $description = $_POST["description"];
+            echo "please enter some description."; die;
+            }else {
+            $description = $_POST["description"];
    }
-$published = $_POST["published"];
+   $published = $_POST["published"];
 
 $sql = "INSERT INTO products VALUES ('','$name','$quantity','$price','$published','$file_name','$description')";
  $result = mysqli_query($conn, $sql);
 
 if($result){
     echo"Data succesfully store";
+    header("location:prod-list.php");
     
 }
 else{

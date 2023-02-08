@@ -56,6 +56,7 @@ if(isset($_POST['submit'])){
     if($result)
     {
          echo"Data succesfully store";
+         header("location:index.php");
     
     }
     else
